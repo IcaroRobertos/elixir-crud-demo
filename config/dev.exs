@@ -2,9 +2,9 @@ use Mix.Config
 
 # Configure your database
 config :manager, Manager.Repo,
-  username: "postgres",
-  password: "postgres",
-  database: "manager_dev",
+  username: "root",
+  password: "root",
+  database: "manager-demo",
   hostname: "localhost",
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
