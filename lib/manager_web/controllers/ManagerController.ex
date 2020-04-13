@@ -17,21 +17,13 @@ defmodule ManagerWeb.ManagerController do
   end
 
   def index(conn, %{"id" => id}) do
-    user = Repo.get(User, id)
-
-    if !user do
-      json(conn, %{error: "User not found"})
-    end
+    user = Repo.get!(User, id)
 
     json(conn, %{name: user.name, id: user.id})
   end
 
   def update(conn, %{"id" => id} = params) do
-    user = Repo.get(User, id)
-
-    if !user do
-      json(conn, %{error: "User not found"})
-    end
+    user = Repo.get!(User, id)
 
     user
     |> User.changeset(params)
@@ -46,11 +38,7 @@ defmodule ManagerWeb.ManagerController do
   end
 
   def delete(conn, %{"id" => id}) do
-    user = Repo.get(User, id)
-
-    if !user do
-      json(conn, %{error: "User not found"})
-    end
+    user = Repo.get!(User, id)
 
     Repo.delete(user)
     json(conn, %{})
