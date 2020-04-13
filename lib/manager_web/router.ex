@@ -7,5 +7,10 @@ defmodule ManagerWeb.Router do
 
   scope "/api", ManagerWeb do
     pipe_through :api
+
+    post "/create", ManagerController, :create
+    get "/user/:id", ManagerController, :index
+    put "/user/:id", ManagerController, :update
+    delete "/user/:id", ManagerController, :delete
   end
 end
